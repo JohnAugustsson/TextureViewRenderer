@@ -1,5 +1,4 @@
 ﻿#pragma once
-
 namespace TextureViewRenderer
 {
 	// Constant buffer used to send MVP matrices to the vertex shader.
@@ -11,9 +10,11 @@ namespace TextureViewRenderer
 	};
 
 	// Used to send per-vertex data to the vertex shader.
-	struct VertexPositionColor
+	struct VertexData
 	{
 		DirectX::XMFLOAT3 pos;
 		DirectX::XMFLOAT3 color;
 	};
+
 }
+	

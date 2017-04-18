@@ -92,6 +92,10 @@ void App::Load(Platform::String^ entryPoint)
 // This method is called after the window becomes active.
 void App::Run()
 {
+	auto cWind = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+	
+
+
 	while (!m_windowClosed)
 	{
 		if (m_windowVisible)
