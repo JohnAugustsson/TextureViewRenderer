@@ -18,7 +18,9 @@ TextureViewRendererMain::TextureViewRendererMain(const std::shared_ptr<DX::Devic
 	m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
 
 	m_fpsTextRenderer = std::unique_ptr<SampleFpsTextRenderer>(new SampleFpsTextRenderer(m_deviceResources));
-
+	m_tweakBar = std::shared_ptr<UI::TweakBar>(UI::TweakBar::GetInstance());
+	m_tweakBar->Initialize(deviceResources->GetD3DDevice(), deviceResources->GetScreenViewport().Width, deviceResources->GetScreenViewport().Height);
+	
 	// TODO: Change the timer settings if you want something other than the default variable timestep mode.
 	// e.g. for 60 FPS fixed timestep update logic, call:
 	/*
@@ -47,6 +49,7 @@ void TextureViewRendererMain::Update()
 	m_timer.Tick([&]()
 	{
 		// TODO: Replace this with your app's content update functions.
+		
 		m_sceneRenderer->Update(m_timer);
 		m_fpsTextRenderer->Update(m_timer);
 	});
@@ -80,7 +83,7 @@ bool TextureViewRendererMain::Render()
 	// TODO: Replace this with your app's content rendering functions.
 	m_sceneRenderer->Render();
 	m_fpsTextRenderer->Render();
-
+	m_tweakBar->Render();
 	return true;
 }
 

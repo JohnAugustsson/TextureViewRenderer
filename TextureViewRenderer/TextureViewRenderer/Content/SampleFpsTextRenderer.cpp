@@ -77,7 +77,7 @@ void SampleFpsTextRenderer::Render()
 {
 	ID2D1DeviceContext* context = m_deviceResources->GetD2DDeviceContext();
 	Windows::Foundation::Size logicalSize = m_deviceResources->GetLogicalSize();
-
+	
 	context->SaveDrawingState(m_stateBlock.Get());
 	context->BeginDraw();
 
